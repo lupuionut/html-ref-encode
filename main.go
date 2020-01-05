@@ -15,16 +15,16 @@ func main() {
 
 	text := os.Args[1]
 
-	var hex string
+	var encoded string
 	for _, letter := range text {
 		a, _ := strconv.ParseInt(fmt.Sprintf("%d", letter), 10, 32)
-		u := fmt.Sprintf("%X", letter)
+		u := fmt.Sprintf("%d", letter)
 
 		if a > 127 {
-			hex += "&#x" + string(u)
+			encoded += "&#" + string(u)
 		} else {
-			hex += string(letter)
+			encoded += string(letter)
 		}
 	}
-	fmt.Println(hex)
+	fmt.Println(encoded)
 }
